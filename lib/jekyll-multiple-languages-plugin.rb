@@ -444,9 +444,10 @@ module Jekyll
       pages        =           site.pages
       url          = "";
       
-      if default_lang != lang
-        baseurl = baseurl + "/" + lang
-      end
+      # Always link to langs in subfolders
+      # if default_lang != lang
+      baseurl = baseurl + "/" + lang
+      # end
       
       collections = site.collections.values.collect{|x| x.docs}.flatten
       pages = site.pages + collections
